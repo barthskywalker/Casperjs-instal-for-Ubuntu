@@ -1,4 +1,4 @@
-# Casperjs-instal-for-Ubuntu
+# Casperjs-install-for-Ubuntu
 
 ## CasperJS Example
 
