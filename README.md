@@ -1,23 +1,4 @@
 # Ubuntu-install-for-Casperjs
-## CasperJS Background
-
-The complete documentation for the current releases is **hosted on [docs.casperjs.org](http://docs.casperjs.org/).**
-
-CasperJS is a navigation scripting & testing utility for [PhantomJS](http://www.phantomjs.org/) and [SlimerJS](http://slimerjs.org/) (still experimental). It eases the process of defining a full navigation scenario and provides useful high-level functions, methods & syntactic sugar for doing common tasks such as:
-
-- defining & ordering [navigation steps](http://docs.casperjs.org/en/latest/quickstart.html)
-- [filling forms](http://docs.casperjs.org/en/latest/modules/casper.html#fill)
-- [clicking links](http://docs.casperjs.org/en/latest/modules/casper.html#click)
-- [capturing screenshots](http://docs.casperjs.org/en/latest/modules/casper.html#captureselector) of a page (or an area)
-- [making assertions on remote DOM](http://docs.casperjs.org/en/latest/modules/tester.html)
-- [logging](http://docs.casperjs.org/en/latest/logging.html) & [events](http://docs.casperjs.org/en/latest/events-filters.html)
-- [downloading](http://docs.casperjs.org/en/latest/modules/casper.html#download) resources, even binary ones
-- catching errors and react accordingly
-- writing [functional test suites](http://docs.casperjs.org/en/latest/testing.html), exporting results as JUnit XML (xUnit)
-
-Browse the [sample examples repository](https://github.com/casperjs/casperjs/tree/master/samples). Don't hesitate to pull request for any cool example of yours as well!
-
-**Read the [full documentation](http://docs.casperjs.org/) on casperjs documentation website.**
 
 ## CasperJS Example
 
