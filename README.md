@@ -66,7 +66,7 @@ xvfb -a casperjs --engine=slimerjs name_of_script.js user pass
 
 If you are running Ubuntu :
 
-- There is a Bash script in the python+bash directory [casper_installer.sh](https://github.com/barthskywalker/Ubuntu-install-for-Casperjs/blob/master/install_casperjs.sh)
+- There following Bash script will install casper for you [casper_installer.sh](https://github.com/barthskywalker/Ubuntu-install-for-Casperjs/blob/master/install_casperjs.sh)
 - Download it and run it as superuser
 
 ### What the script does:
