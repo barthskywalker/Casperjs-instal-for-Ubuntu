@@ -59,7 +59,7 @@ casperjs --engine=slimerjs name_of_script.js user pass
 **Shell command to run CasperJS script through browser on server**
 
 ```shell
-xvfb -a casperjs --engine=slimerjs name_of_script.js user pass
+xvfb-run -a casperjs --engine=slimerjs name_of_script.js user pass
 ```
 
 ## Install CasperJS on your system
