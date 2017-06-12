@@ -56,9 +56,33 @@ while true; do
     * ) echo "Please answer yes or no.";;
   esac
 done
-#install firefox if not already installed
-sudo apt-get install firefox -y
-export SLIMERJSLAUNCHER=/usr/bin/firefox/
+
+## install nightly vesion of firefox to make slimerjs headless and set slimer application launcher
+while true; do
+  printf "Would you like to install firefox-nightly to make \n slimerjs headless? [yn]"
+  read -r yn
+  case $yn in
+    [Yy]* )
+    #download and install firefox nightly to make slimerjs headless
+    cd /usr/local/share
+    sudo wget https://download-origin.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-central/firefox-55.0a1.en-US.linux-i686.tar.bz2
+    sudo tar xjf firefox-55.0a1.en-US.linux-i686.tar.bz2
+    sudo rm -r firefox-55.0a1.en-US.linux-i686.tar.bz2
+    sudo ln -s /usr/local/share/firefox/firefox /usr/bin/firefox-nightly
+    #set slimerjs application launcher to use firefox-nightly
+    export SLIMERJSLAUNCHER=/usr/bin/firefox-nightly
+    break;;
+    #local firefox nightly won't be installed 
+    [Nn]* )
+    #install firefox if not already installed
+    sudo apt-get install firefox -y
+    #set slimerjs application launcher to use default firefox
+    export SLIMERJSLAUNCHER=/usr/bin/firefox/
+    break;;
+    * ) echo "Please answer yes or no.";;
+  esac
+done
+
 #install CasperjsJS
 cd /usr/local/share
 sudo wget https://github.com/casperjs/casperjs/archive/1.1.4-1.zip
