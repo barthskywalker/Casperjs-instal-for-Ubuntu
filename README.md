@@ -127,7 +127,7 @@ firefox -v
 - performance is inproved by a couple of seconds
 - all casperjs scripts run the same through browser as on the command line
 - the application launcher is no longer:`export SLIMERJSLAUNCHER=/usr/bin/firefox`
-- but ha been changed to:`export SLIMERJSLAUNCHER=/usr/bin/firefox-nightly`
+- but has been changed to:`export SLIMERJSLAUNCHER=/usr/bin/firefox-nightly`
 
 ### The command to run your CasperJS scripts is now:
 ```shell
