@@ -121,5 +121,19 @@ EnableExtensionManager=1
 ```shell
 firefox -v
 ```
+## If you choose to install Firefox-nightly
+
+- You no longer have to use the xvfb graphical engine
+- performance is inproved by a couple of seconds
+- all casperjs scripts run the same through browser as on the command line
+- the application launcher is no longer:`export SLIMERJSLAUNCHER=/usr/bin/firefox`
+- but ha been changed to:`export SLIMERJSLAUNCHER=/usr/bin/firefox-nightly`
+
+### The command to run your CasperJS scripts is now:
+```shell
+MOZ_HEADLESS=1 casperjs --engine=slimerjs name_of_script.js user pass
+```
+#### Also you will need to increase the `MaxVersion=53.*` in slimerjs's application.ini to `MaxVersion=55.*` .
+
 
 ## At this point installation is complete !!!!!
