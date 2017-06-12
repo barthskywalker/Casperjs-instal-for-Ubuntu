@@ -137,3 +137,6 @@ MOZ_HEADLESS=1 casperjs --engine=slimerjs name_of_script.js user pass
 
 
 ## At this point installation is complete !!!!!
+
+## More information on Headless SlimerJS with Firefox can be found here:
+### [https://adriftwith.me/coding/2017/04/21/headless-slimerjs-with-firefox/](https://adriftwith.me/coding/2017/04/21/headless-slimerjs-with-firefox/)
