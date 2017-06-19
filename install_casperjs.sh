@@ -42,6 +42,11 @@ while true; do
     sudo ln -s ~/slimerjs-0.10.3/slimerjs /usr/bin/slimerjs
     sudo ln -s ~/slimerjs-0.10.3/slimerjs /usr/local/bin/slimerjs
     sudo ln -s ~/slimerjs-0.10.3/slimerjs /usr/local/share/slimerjs
+    ############
+    #code to update the appiclation.ini
+    ###########
+    sudo file_contents=$(< ~/slimerjs-0.10.3/application.ini)
+    sudo echo "${file_contents//MaxVersion=52.*/MaxVersion=55.*}" >
     break;;
     #local system install
     [Nn]* )
@@ -52,6 +57,11 @@ while true; do
     sudo ln -s /usr/local/share/slimerjs-0.10.3/slimerjs /usr/bin/slimerjs
     sudo ln -s /usr/local/share/slimerjs-0.10.3/slimerjs /usr/local/bin/slimerjs
     sudo ln -s /usr/local/share/slimerjs-0.10.3/slimerjs /usr/local/share/slimerjs
+    ############
+    #code to update the appiclation.ini
+    ##########
+    sudo file_contents=$(< /usr/local/share/slimerjs-0.10.3/application.ini)
+    sudo echo "${file_contents//MaxVersion=52.*/MaxVersion=55.*}" >
     break;;
     * ) echo "Please answer yes or no.";;
   esac
@@ -72,7 +82,7 @@ while true; do
     #set slimerjs application launcher to use firefox-nightly
     export SLIMERJSLAUNCHER=/usr/bin/firefox-nightly
     break;;
-    #local firefox nightly won't be installed 
+    #local firefox nightly won't be installed
     [Nn]* )
     #install firefox if not already installed
     sudo apt-get install firefox -y
