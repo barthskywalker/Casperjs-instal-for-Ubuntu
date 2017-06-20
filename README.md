@@ -117,6 +117,7 @@ EnableExtensionManager=1
 #### Increase the `MaxVersion=53.*` if the version of Firefox installed is greater than that specified :
 
 - you can check the version of Firefox by running this command
+
 ##### The bash installation script now sets `MaxVersion=53.*` to `MaxVersion=55.*` so the need to modify it is no longer required
 
 ```shell
