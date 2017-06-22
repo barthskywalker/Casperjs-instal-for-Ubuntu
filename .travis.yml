@@ -1,3 +1,5 @@
+image: ubuntu:14.04
+
 test:
   script:
     - apt-get update
@@ -64,6 +66,5 @@ test:
 
     - apt-get install xvfb -y
     - cd $project_path
-    - cd Templates
     - ls
-    - MOZ_HEADLESS=1 casperjs --engin=slimerjs pubs-rsc-org.js R00117784 Greenhill2 '1497884177' 'Cork Institute of Technology'
+    
