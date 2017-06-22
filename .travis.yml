@@ -1,5 +1,5 @@
 
-sudo: false
+sudo: Enable
 dist: trusty
 before_install:
 
