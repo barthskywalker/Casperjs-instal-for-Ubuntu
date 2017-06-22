@@ -1,0 +1,69 @@
+test:
+  script:
+    - apt-get update
+    - apt-get install -y npm
+    - apt-get install -y python-software-properties
+    - apt-get update
+    #####################################################################
+    ######               Install for nodeJS               ###############
+    ####################################################################
+    - apt-get install -y build-essential libssl-dev
+    - apt-get install -y curl libc6 libcurl3 zlib1g
+    - curl https://raw.githubusercontent.com/creationix/nvm/v0.16.1/install.sh | sh
+    - apt-get install -y nodejs
+    #####################################################################
+    ######               Install for phantomJS            ###############
+    #####################################################################
+    - apt-get install -y build-essential chrpath libssl-dev libxft-dev
+    - apt-get install -y libfreetype6 libfreetype6-dev
+    - apt-get install -y libfontconfig1 libfontconfig1-dev
+    - project_path=`pwd`
+    - cd /usr/local/share
+    - apt-get -f install
+    - apt-get install wget
+    - wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.7-linux-x86_64.tar.bz2
+    - tar xjf phantomjs-1.9.7-linux-x86_64.tar.bz2
+    - ln -s /usr/local/share/phantomjs-1.9.7-linux-x86_64/bin/phantomjs /usr/local/share/phantomjs
+    - ln -s /usr/local/share/phantomjs-1.9.7-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs
+    - ln -s /usr/local/share/phantomjs-1.9.7-linux-x86_64/bin/phantomjs /usr/bin/phantomjs
+    - phantomjs --version
+    #####################################################################
+    ######               Install for phantomJS            ###############
+    #####################################################################
+    - wget https://download.slimerjs.org/releases/0.10.3/slimerjs-0.10.3.zip
+    - apt-get install unzip -y
+    - unzip slimerjs-0.10.3.zip
+    - rm -r slimerjs-0.10.3.zip
+    - ln -s /usr/local/share/slimerjs-0.10.3/slimerjs /usr/bin/slimerjs
+    - ln -s /usr/local/share/slimerjs-0.10.3/slimerjs /usr/local/bin/slimerjs
+    - ln -s /usr/local/share/slimerjs-0.10.3/slimerjs /usr/local/share/slimerjs
+
+
+
+
+    #####################################################################
+    - npm install casperjs -g
+
+    #####################################################################
+    ######               Install for firefox nightly      ###############
+    #####################################################################
+    - wget https://download-origin.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-central/firefox-55.0a1.en-US.linux-i686.tar.bz2
+    - tar xjf firefox-55.0a1.en-US.linux-i686.tar.bz2
+    - rm -r firefox-55.0a1.en-US.linux-i686.tar.bz2
+    - ln -s /usr/local/share/firefox/firefox /usr/bin/firefoxnightly
+    #set slimerjs application launcher to use firefox-nightly
+    - export SLIMERJSLAUNCHER=/usr/bin/firefoxnightly
+
+
+    #####################################################################
+    ######            Update slimerjs application.ini         ###########
+    #####################################################################
+    - file_contents=$(< /usr/local/share/slimerjs-0.10.3/application.ini)
+    - echo "${file_contents//MaxVersion=52.*/MaxVersion=55.*}" > /usr/local/share/slimerjs-0.10.3/application.ini
+    - cat /usr/local/share/slimerjs-0.10.3/application.ini
+
+    - apt-get install xvfb -y
+    - cd $project_path
+    - cd Templates
+    - ls
+    - MOZ_HEADLESS=1 casperjs --engin=slimerjs pubs-rsc-org.js R00117784 Greenhill2 '1497884177' 'Cork Institute of Technology'
