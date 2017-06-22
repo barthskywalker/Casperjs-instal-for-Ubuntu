@@ -1,7 +1,5 @@
-image: ubuntu:14.04
+before_install:
 
-test:
-  script:
     - apt-get update
     - apt-get install -y npm
     - apt-get install -y python-software-properties
