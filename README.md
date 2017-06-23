@@ -66,7 +66,7 @@ xvfb-run -a casperjs --engine=slimerjs name_of_script.js user pass
 
 If you are running Ubuntu :
 
-- The following Bash script will install casper for you [casper_installer.sh](https://github.com/barthskywalker/Ubuntu-install-for-Casperjs/blob/master/install_casperjs.sh)
+- The following Bash script will install casper for you [casper_installer.sh](https://github.com/barthskywalker/Casperjs-install-for-Ubuntu/blob/master/install_casperjs.sh)
 - Download it and run it as superuser
 
 ### What the script does:
@@ -118,8 +118,6 @@ EnableExtensionManager=1
 
 - you can check the version of Firefox by running this command
 
-##### The bash installation script now sets `MaxVersion=53.*` to `MaxVersion=55.*` so the need to modify it is no longer required
-
 ```shell
 firefox -v
 ```
@@ -142,3 +140,9 @@ MOZ_HEADLESS=1 casperjs --engine=slimerjs name_of_script.js user pass
 
 ## More information on Headless SlimerJS with Firefox can be found here:
 ### [https://adriftwith.me/coding/2017/04/21/headless-slimerjs-with-firefox/](https://adriftwith.me/coding/2017/04/21/headless-slimerjs-with-firefox/)
+
+## Some useful links
+ - [www.appnovation.com/blog/introduction-casperjs](https://www.appnovation.com/blog/introduction-casperjs)
+ - [official CasperJS documentation](http://docs.casperjs.org/en/latest/)
+ - [official SlimerJS documentation](https://slimerjs.org/)
+ - [official PhantomJS documentation](http://phantomjs.org/)
