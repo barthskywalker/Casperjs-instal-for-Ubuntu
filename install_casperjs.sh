@@ -75,9 +75,9 @@ while true; do
     [Yy]* )
     #download and install firefox nightly to make slimerjs headless
     cd /usr/local/share
-    sudo wget https://download-origin.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-central/firefox-55.0a1.en-US.linux-i686.tar.bz2
-    sudo tar xjf firefox-55.0a1.en-US.linux-i686.tar.bz2
-    sudo rm -r firefox-55.0a1.en-US.linux-i686.tar.bz2
+    sudo wget https://download-origin.cdn.mozilla.net/pub/firefox/releases/55.0b4/linux-x86_64/en-GB/firefox-55.0b4.tar.bz2
+    sudo tar xjf firefox-55.0b4.tar.bz2
+    sudo rm -r firefox-55.0b4.tar.bz2
     sudo ln -s /usr/local/share/firefox/firefox /usr/bin/firefox-nightly
     #set slimerjs application launcher to use firefox-nightly
     export SLIMERJSLAUNCHER=/usr/bin/firefox-nightly
