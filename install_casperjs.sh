@@ -21,7 +21,7 @@ sudo apt-get install -y libfreetype6 libfreetype6-dev
 sudo apt-get install -y libfontconfig1 libfontconfig1-dev
 sudo apt-get -f install
 #install PhantomJS
-cd /usr/local/share || exit
+cd /usr/local/share
 sudo wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
 sudo tar xjf phantomjs-2.1.1-linux-x86_64.tar.bz2
 sudo rm -r phantomjs-2.1.1-linux-x86_64.tar.bz2
@@ -35,7 +35,7 @@ while true; do
   case $yn in
     [Yy]* )
     #server install slimerjs needs to be located in home directory in order to have access to .Xauthority file
-    cd ~ || exit
+    cd ~
     sudo wget https://download.slimerjs.org/releases/0.10.3/slimerjs-0.10.3.zip
     sudo unzip slimerjs-0.10.3.zip
     sudo rm -r slimerjs-0.10.3.zip
@@ -43,10 +43,14 @@ while true; do
     sudo ln -s ~/slimerjs-0.10.3/slimerjs /usr/local/bin/slimerjs
     sudo ln -s ~/slimerjs-0.10.3/slimerjs /usr/local/share/slimerjs
     ############
+    #code to update the appiclation.ini
+    ###########
+    sudo file_contents=$(< ~/slimerjs-0.10.3/application.ini)
+    sudo echo "${file_contents//MaxVersion=52.*/MaxVersion=55.*}" >
     break;;
     #local system install
     [Nn]* )
-    cd /usr/local/share || exit
+    cd /usr/local/share
     sudo wget https://download.slimerjs.org/releases/0.10.3/slimerjs-0.10.3.zip
     sudo unzip slimerjs-0.10.3.zip
     sudo rm -r slimerjs-0.10.3.zip
@@ -54,7 +58,10 @@ while true; do
     sudo ln -s /usr/local/share/slimerjs-0.10.3/slimerjs /usr/local/bin/slimerjs
     sudo ln -s /usr/local/share/slimerjs-0.10.3/slimerjs /usr/local/share/slimerjs
     ############
-
+    #code to update the appiclation.ini
+    ##########
+    sudo file_contents=$(< /usr/local/share/slimerjs-0.10.3/application.ini)
+    sudo echo "${file_contents//MaxVersion=52.*/MaxVersion=55.*}" >
     break;;
     * ) echo "Please answer yes or no.";;
   esac
@@ -67,7 +74,7 @@ while true; do
   case $yn in
     [Yy]* )
     #download and install firefox nightly to make slimerjs headless
-    cd /usr/local/share || exit
+    cd /usr/local/share
     sudo wget https://download-origin.cdn.mozilla.net/pub/firefox/releases/55.0b4/linux-x86_64/en-GB/firefox-55.0b4.tar.bz2
     sudo tar xjf firefox-55.0b4.tar.bz2
     sudo rm -r firefox-55.0b4.tar.bz2
@@ -85,19 +92,15 @@ while true; do
     * ) echo "Please answer yes or no.";;
   esac
 done
-#code to update the appiclation.ini
-sudo file_contents=$(< /usr/local/share/slimerjs-0.10.3/application.ini)
-sudo echo "${file_contents//MaxVersion=52.*/MaxVersion=55.*}"> /usr/local/share/slimerjs-0.10.3/application.ini
-cat /usr/local/share/slimerjs-0.10.3/application.ini
 
 #install CasperjsJS
-cd /usr/local/share || exit
+cd /usr/local/share
 sudo wget https://github.com/casperjs/casperjs/archive/1.1.4-1.zip
 sudo unzip 1.1.4-1.zip
 sudo rm -r 1.1.4-1.zip
-sudo ln -s /usr/local/share/casperjs-1.1.4-1/bin/casperjs /usr/bin/casperjs
-sudo ln -s /usr/local/share/casperjs-1.1.4-1/bin/casperjs /usr/local/bin/casperjs
-sudo ln -s /usr/local/share/casperjs-1.1.4-1/bin/casperjs /usr/local/share/casperjs
+sudo ln -s /usr/local/share/casperjs-1.1.4/bin/casperjs /usr/bin/casperjs
+sudo ln -s /usr/local/share/casperjs-1.1.4/bin/casperjs /usr/local/bin/casperjs
+sudo ln -s /usr/local/share/casperjs-1.1.4/bin/casperjs /usr/local/share/casperjs
 #install xvfb
 sudo apt-get install xvfb -y
 #tidy up
